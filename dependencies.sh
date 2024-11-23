@@ -1,4 +1,4 @@
 #!/bin/bash
 
-npm i --save-dev @nestjs/config cross-env
+npm i --save-dev dotenv cross-env
 echo "Packages installed successfully."
