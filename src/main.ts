@@ -20,7 +20,8 @@ const ENV = Object.values(Environment).includes(process.env.NODE_ENV as Environm
 const ENV_FILE_PATH = `${process.cwd()}/.env.${ENV}`;
 const COMMON_ENV_FILE_PATH = `${process.cwd()}/.env.common`;
 
-dotenv.config({ path: [COMMON_ENV_FILE_PATH, ENV_FILE_PATH] }); 
+// Note : dotenv gives higher precedence to variables defined in the FIRST file loaded.
+dotenv.config({ path: [ENV_FILE_PATH, COMMON_ENV_FILE_PATH] }); 
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
